@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run(){
             Main main = new Main();
-            final WeatherConditions conditions = main.(city);
+            final WeatherConditions conditions = main.loadCurrentWeather(city);
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run(){
             Main main = new Main();
-            final WeatherForecast forecast = main.(city);
+            final WeatherForecast forecast = main.loadWeatherForecast(city);
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {

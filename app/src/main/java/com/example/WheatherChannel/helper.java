@@ -10,11 +10,11 @@ public class helper {
 
 
     public String readHTTP(String url) {
+        StringBuilder data = new StringBuilder();
         try {
             URL urlObj = new URL(url);
             HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            StringBuilder data = new StringBuilder();
             String line;
             do {
                 line = reader.readLine();
@@ -27,7 +27,7 @@ public class helper {
         }
         catch (IOException ioe) {
             System.out.println("Error reading HTTP: "+ioe);
-            return null;
         }
+        return data.toString();
     }
 }
